@@ -1,0 +1,142 @@
+<style>
+	.game {
+		width: 300px;
+		height: 300px;
+		display: flex;
+		display: -o-flex;
+		display: -moz-flex;
+		display: -webkit-flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		font-family: "Lucida Console", sans-serif;
+		position: relative;
+	}
+	.game div {
+		width: 90px;
+		height: 90px;
+		margin: 5px;
+		padding: 0;
+		float: left;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		cursor: pointer;
+		transition: all ease .3s;
+		line-height: 100px;
+		font-size: 30px;
+		text-align: center;
+		position: relative;
+		z-index: 1;
+		background: #ccc;
+
+	}
+	.game div:hover {
+		box-shadow: 0 0 0 5px #333;
+	}
+	.game div:before, .game div:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		transition: all ease .3s;
+	}
+	.checked.x {
+		background: #fefeb2;
+	}
+	.checked.x:before, .checked.x:after {
+		height: 7px;
+		width: 50px;
+		border-radius: 7px;
+		background: #333;
+		top: 40px;
+		left: 20px;
+		transform: rotate(45deg) translate(0,0);
+	}
+	.checked.x:after {
+		transform: rotate(-45deg) translate(0,0);
+	}
+	.checked.o {
+		background: #c0f6ff
+	}
+	.checked.o:after {
+		height: 34px;
+		width: 34px;
+		border: 5px solid #333;
+		border-radius: 50%;
+	}
+	.winner {
+		text-align: center;
+		font-size: 30px;
+		color: black;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 5;
+		font-weight: bold;
+		display: none;
+	}
+
+	.reset {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%) scale(0);
+		z-index: 5;
+		display: inline-block;
+		background: #333;
+		padding: 9px 13px;
+		color: #fff;
+		text-decoration: none;
+		font-size: 25px;
+		transition: all ease .3s;
+		font-family: "Lucida Console", sans-serif;
+	}
+	.reset:hover {
+		box-shadow: inset 0 0 0 5px #333;
+		color: #333;
+		background: #dcffe3;
+	}
+	.disabled .winner {
+		display: block;
+	}
+	.disabled .game:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: #dcffe3;
+		opacity: .75;
+		z-index: 3;
+	}
+	.disabled .reset {
+		transform: translate(-50%,-50%) scale(1);
+	}
+
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+	</head>
+	<body>
+		<section class="game">
+			<a href="javascrip:void(0)" class="reset">new game</a>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<p class="winner"></p>
+		</section>
+		
+		<script src='main.js'></script>
+	</body>
+</html>
